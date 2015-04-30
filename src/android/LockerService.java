@@ -1,5 +1,6 @@
 package com.mobishift.cordova.plugins.lockerservice;
 
+import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -8,6 +9,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.google.zxing.NotFoundException;
 
 @SuppressWarnings("deprecation")
 public class LockerService extends Service {
@@ -27,7 +31,13 @@ public class LockerService extends Service {
         Log.d(TAG, "onCreate");
 
         //设置intent
-        toMainIntent = new Intent("lockerService");//#设置Main.class为要跳转到的界面，既当解锁时要打开的界面
+        Class<Activity> c = null;
+        try{
+            c = (Class<Activity>) Class.forName(this.getApplicationContext().getPackageName() + ".MainActivity");
+        }catch (ClassNotFoundException ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        toMainIntent = new Intent(this, c);//#设置Main.class为要跳转到的界面，既当解锁时要打开的界面
         toMainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//必须得有，不知为何
 
         //注册广播
