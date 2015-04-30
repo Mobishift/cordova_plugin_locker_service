@@ -21,7 +21,6 @@ package YOU_APP_PACKAGE_NAME;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.avos.avoscloud.*;
 
 import com.mobishift.cordova.plugins.lockerservice.LockerService;
 import com.mobishift.cordova.plugins.lockerservice.RootUtils;
