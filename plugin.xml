@@ -19,6 +19,6 @@
         </config-file>
         <source-file src="src/android/LockerReceiver.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice" />
         <source-file src="src/android/LockerService.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice" />
-        <source-file src="src/android/LockerService.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice" />
+        <source-file src="src/android/RootUtils.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice" />
     </platform>
 </plugin>
