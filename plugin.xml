@@ -1,16 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="com.mobishift.cordova.plugins.lockerservice" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>LockerService</name>
-    <js-module name="LockerService" src="www/LockerService.js">
-        <clobbers target="cordova.plugins.LockerService"/>
-    </js-module>
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="LockerService">
                 <param name="android-package" value="com.mobishift.cordova.plugins.lockerservice.LockerService"/>
             </feature>
         </config-file>
-        <config-file parent="/*" target="AndroidManifest.xml"/>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <service android:name="com.mobishift.cordova.plugins.lockerservice.LockerService" >
+            </service>
+            <receiver android:name="com.mobishift.cordova.plugins.lockerservice.BootReceiver" >
+            </receiver>
+        </config-file>
+        <source-file src="src/android/LockerReceiver.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice/LockerService"/>
         <source-file src="src/android/LockerService.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice/LockerService"/>
     </platform>
 </plugin>
