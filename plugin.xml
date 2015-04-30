@@ -10,7 +10,7 @@
         <config-file parent="/manifest/application" target="AndroidManifest.xml">
             <service android:name="com.mobishift.cordova.plugins.lockerservice.LockerService" >
             </service>
-            <receiver android:name="com.mobishift.cordova.plugins.lockerservice.BootReceiver" >
+            <receiver android:name="com.mobishift.cordova.plugins.lockerservice.LockerReceiver" >
             </receiver>
         </config-file>
         <source-file src="src/android/LockerReceiver.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice/LockerService"/>
