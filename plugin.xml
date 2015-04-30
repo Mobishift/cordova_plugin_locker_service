@@ -13,6 +13,10 @@
             <receiver android:name="com.mobishift.cordova.plugins.lockerservice.LockerReceiver" >
             </receiver>
         </config-file>
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        </config-file>
         <source-file src="src/android/LockerReceiver.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice"/>
         <source-file src="src/android/LockerService.java" target-dir="src/com/mobishift/cordova/plugins/lockerservice"/>
     </platform>
